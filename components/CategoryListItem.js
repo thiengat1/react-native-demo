@@ -3,16 +3,22 @@ import {
     View,
     Image,
     Text,
-    StyleSheet
+    StyleSheet,
+    TouchableOpacity,
+    Alert
 } from 'react-native';
 import Guitar from '../assets/guitar.png';
 
 export default function CategoryListItem(props){
+    const {category,onPress}=props;
     return (
-        <View style={style.container}>
-            <Text style={style.title}>CategoryListItem</Text>
-            <Image style={style.categoryImage} source={Guitar}/>
-        </View>
+        <TouchableOpacity activeOpacity={'0.5'} onPress={onPress}>
+            <View style={style.container}>
+                <Text style={style.title}>{category.name}</Text>
+                <Image style={style.categoryImage} source={Guitar}/>
+            </View>
+        </TouchableOpacity>
+        
     )
 }
 const style= StyleSheet.create({
